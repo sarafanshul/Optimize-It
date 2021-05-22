@@ -20,6 +20,9 @@ interface ProjectDao {
 	@Insert( onConflict = OnConflictStrategy.REPLACE )
 	fun insertWorker( worker: Worker )
 
+	@Query("SELECT * FROM project")
+	fun getAllProjects() : LiveData<List<Project>>
+
 	@Query( "SELECT * FROM project WHERE projectName = :projectName" )
 	fun getProjectWithName( projectName : String ) : List<Project>
 
