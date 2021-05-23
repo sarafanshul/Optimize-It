@@ -6,27 +6,28 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.commit
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.projectdelta.optimize.activity.EditProjectActivity
+import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.databinding.ActivityMainBinding
-import com.projectdelta.optimize.databinding.DialogTextBinding
 import com.projectdelta.optimize.fragment.LoadProjectFragment
+import com.projectdelta.optimize.viewModel.MainActivityViewModel
 
 
 class MainActivity : AppCompatActivity() {
 
 	lateinit var binding : ActivityMainBinding
+	lateinit var viewModel: MainActivityViewModel
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		binding = ActivityMainBinding.inflate(layoutInflater)
+		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( MainActivityViewModel::class.java )
 
+		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
 		binding.mainLlNew.setOnClickListener {
@@ -39,11 +40,7 @@ class MainActivity : AppCompatActivity() {
 				setMessage("Project name cannot be changed")
 				setPositiveButton("CREATE"){_ , _ ->
 					// [Start new Activity]
-					Intent( this@MainActivity , EditProjectActivity::class.java ).apply {
-						putExtra("PROJECT_NAME" , projectName.text)
-					}.also {
-						startActivity(it)
-					}
+					createNewProjectAndLaunch( projectName.text.toString() )
 				}
 				setNegativeButton("CANCEL"){_ , _ ->
 
@@ -70,11 +67,23 @@ class MainActivity : AppCompatActivity() {
 
 		binding.mainBtLoad.setOnClickListener {
 			supportFragmentManager.beginTransaction().apply {
+				setCustomAnimations(R.anim.enter_anim , R.anim.exit_anim , R.anim.enter_anim , R.anim.exit_anim)
 				add( binding.mainFcvMain.id , LoadProjectFragment() )
 				addToBackStack(null)
 				commit()
 			}
 		}
 
+	}
+
+	private fun createNewProjectAndLaunch(projectName: String) {
+
+		viewModel.insert( Project( projectName ) )
+
+		Intent( this@MainActivity , EditProjectActivity::class.java ).apply {
+			putExtra("PROJECT_NAME" , projectName)
+		}.also {
+			startActivity(it)
+		}
 	}
 }

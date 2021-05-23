@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/rv_load_cv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
@@ -14,8 +15,10 @@
         android:animateLayoutChanges="true"
         android:clickable="true"
         app:cardElevation="14dp"
-        app:cardCornerRadius="16dp"
+        app:cardCornerRadius="8dp"
+        android:paddingVertical="4dp"
         app:cardMaxElevation="16dp"
+        android:background="@drawable/card_view_selector"
         app:cardPreventCornerOverlap="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,19 +29,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/rv_load_tw_name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:gravity="center"
-                android:paddingHorizontal="6dp"
-                android:paddingVertical="4dp"
+                android:layout_weight="0.9"
+                android:textColor="?colorOnColorOnPrimary"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp"
                 android:singleLine="true"
                 android:text="Test"
-                android:textSize="35dp" />
+                android:textSize="27dp" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.20"
+                android:paddingHorizontal="16dp"
+                android:src="@drawable/ic_baseline_miscellaneous_services_24"
+                android:clickable="true"/>
 
         </LinearLayout>
 

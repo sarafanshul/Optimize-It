@@ -1,8 +1,10 @@
 package com.projectdelta.optimize.adapter
 
 import android.view.LayoutInflater
+
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+
 import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.databinding.LayoutRvLoadBinding
 

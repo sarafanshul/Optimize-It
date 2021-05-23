@@ -1,5 +1,6 @@
 package com.projectdelta.optimize.fragment
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.projectdelta.optimize.R
+import com.projectdelta.optimize.activity.EditProjectActivity
 import com.projectdelta.optimize.adapter.RecyclerViewLoadProjectAdapter
 import com.projectdelta.optimize.data.ProjectDatabase
 import com.projectdelta.optimize.databinding.LayoutEmptyViewBinding
@@ -70,12 +73,34 @@ class LoadProjectFragment : Fragment() {
 			RecyclerItemClickListenr( context?.applicationContext!! , binding.loadProjectRvMain ,
 				object : RecyclerItemClickListenr.OnItemClickListener{
 					override fun onItemClick(view: View, position: Int) {
-						Toast.makeText(context , "TEST" , Toast.LENGTH_LONG).show()
+						launchProject( position )
 					}
 					override fun onItemLongClick(view: View?, position: Int) { }
 				}
 			)
 		)
+
+		binding.loadProjectTwCancel.setOnClickListener {
+			requireActivity().supportFragmentManager.popBackStack()
+		}
+
+		// not needed
+		binding.loadProjectTwLoad.visibility = View.GONE
+	}
+
+	private fun launchProject( position : Int ){
+		MaterialAlertDialogBuilder(requireContext()).apply {
+			setTitle("Continue with ${ adapter.data[position].projectName } ?")
+			setPositiveButton("YES"){_ , _ ->
+				Intent( requireContext() , EditProjectActivity::class.java ).apply {
+					putExtra("PROJECT_NAME" , adapter.data[position].projectName )
+				}.also {
+					startActivity(it)
+				}
+			}
+			setNegativeButton("CANCEL"){_ , _ -> }
+			create()
+		}.show()
 	}
 
 	override fun onDestroyView() {

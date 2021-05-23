@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <color name="mat_black">#191919</color>
+    <color name="diesel">#020001</color>
+    <color name="asphalt">#0b0704</color>
+    <color name="wet_asphalt">#34495e</color>
+    <color name="light_grey">#666666</color>
+
+    <color name="pressed_color">#191919</color>
+    <color name="selected_color">#191919</color>
+    <color name="focused_color">#BABABA</color>
 </resources>
