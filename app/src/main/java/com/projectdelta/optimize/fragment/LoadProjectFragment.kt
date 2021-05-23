@@ -7,11 +7,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.projectdelta.optimize.R
 import com.projectdelta.optimize.adapter.RecyclerViewLoadProjectAdapter
 import com.projectdelta.optimize.data.ProjectDatabase
+import com.projectdelta.optimize.databinding.LayoutEmptyViewBinding
 import com.projectdelta.optimize.databinding.LoadProjectFragmentBinding
+import com.projectdelta.optimize.util.RecyclerItemClickListenr
+import com.projectdelta.optimize.util.StatesRecyclerViewAdapter
 import com.projectdelta.optimize.viewModel.LoadProjectViewModel
 
 class LoadProjectFragment : Fragment() {
@@ -46,12 +50,32 @@ class LoadProjectFragment : Fragment() {
 		val DB = ProjectDatabase.getInstance(context?.applicationContext!!).projectDao()
 
 		binding.loadProjectRvMain.layoutManager = LinearLayoutManager(activity)
+		val emptyView : View = layoutInflater.inflate( R.layout.layout_empty_view , binding.loadProjectRvMain , false )
 		adapter = RecyclerViewLoadProjectAdapter()
-		binding.loadProjectRvMain.adapter = adapter
+		val statesRecyclerViewAdapter = StatesRecyclerViewAdapter( adapter , emptyView , emptyView , emptyView )
+		binding.loadProjectRvMain.adapter = statesRecyclerViewAdapter
+
+		statesRecyclerViewAdapter.state = StatesRecyclerViewAdapter.STATE_EMPTY
 
 		DB.getAllProjects().observe(viewLifecycleOwner , { data ->
-			adapter.set( data )
+			if( data == null || data.isEmpty() )
+				statesRecyclerViewAdapter.state = StatesRecyclerViewAdapter.STATE_EMPTY
+			else{
+				adapter.set( data )
+				statesRecyclerViewAdapter.state = StatesRecyclerViewAdapter.STATE_NORMAL
+			}
 		})
+
+		binding.loadProjectRvMain.addOnItemTouchListener(
+			RecyclerItemClickListenr( context?.applicationContext!! , binding.loadProjectRvMain ,
+				object : RecyclerItemClickListenr.OnItemClickListener{
+					override fun onItemClick(view: View, position: Int) {
+						Toast.makeText(context , "TEST" , Toast.LENGTH_LONG).show()
+					}
+					override fun onItemLongClick(view: View?, position: Int) { }
+				}
+			)
+		)
 	}
 
 	override fun onDestroyView() {

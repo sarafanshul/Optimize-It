@@ -14,12 +14,12 @@ class RecyclerViewLoadProjectAdapter : RecyclerView.Adapter< RecyclerViewLoadPro
 	inner class LoadViewHolder( binding: LayoutRvLoadBinding ) : RecyclerView.ViewHolder( binding.root )
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LoadViewHolder {
-		binding = LayoutRvLoadBinding.inflate( LayoutInflater.from( parent.context ) )
+		binding = LayoutRvLoadBinding.inflate( LayoutInflater.from( parent.context ) , parent , false )
 		return LoadViewHolder( binding )
 	}
 
 	override fun onBindViewHolder(holder: LoadViewHolder, position: Int) {
-		holder.itemView.apply {
+		holder.apply {
 			binding.rvLoadTwName.text = data[position].projectName
 		}
 	}

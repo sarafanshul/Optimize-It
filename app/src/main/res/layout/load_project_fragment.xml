@@ -13,6 +13,14 @@
         android:layout_margin="8dp"
         android:orientation="vertical">
 
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Projects"
+            android:textSize="45dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:id="@+id/load_project_rv_main"
