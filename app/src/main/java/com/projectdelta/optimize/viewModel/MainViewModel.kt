@@ -9,7 +9,7 @@ import com.projectdelta.optimize.repository.ProjectRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(application: Application) : AndroidViewModel( application ) {
+class MainViewModel(application: Application) : AndroidViewModel( application ) {
 	private val repository : ProjectRepository
 
 	init {

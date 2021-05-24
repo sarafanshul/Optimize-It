@@ -13,7 +13,7 @@ data class Worker(
 
 	val projectName : String ,
 
-	val capacity : Long ,
+	var capacity : Long ,
 	var maxDistance : Long = 1_000_000_000 ,
 
 	@TypeConverters( Converters::class )

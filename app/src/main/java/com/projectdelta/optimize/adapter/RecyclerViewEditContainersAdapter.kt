@@ -12,7 +12,7 @@ import com.google.android.material.textview.MaterialTextView
 import com.projectdelta.optimize.R
 import com.projectdelta.optimize.data.entities.Container
 
-class RecyclerViewEditContainers( private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewEditContainersAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 	lateinit var data : List<Container>
 

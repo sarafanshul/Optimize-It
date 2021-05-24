@@ -5,14 +5,17 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.projectdelta.optimize.data.ProjectDatabase
+import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.data.entities.relations.ProjectWithContainers
 import com.projectdelta.optimize.data.entities.relations.ProjectWithWorkers
 import com.projectdelta.optimize.repository.ProjectRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class EditProjectActivityViewModel(application: Application) : AndroidViewModel( application ) {
+
+class ProjectInfoViewModel(application: Application) : AndroidViewModel( application ) {
 	private val repository : ProjectRepository
 
 	init {
@@ -32,5 +35,11 @@ class EditProjectActivityViewModel(application: Application) : AndroidViewModel(
 
 	fun getWorkers(projectName : String) : LiveData<List<ProjectWithWorkers>>{
 		return repository.getProjectWithWorkersLive(projectName)
+	}
+
+	fun insertContainer( container: Container ){
+		viewModelScope.launch(Dispatchers.IO) {
+			repository.insertContainer( container )
+		}
 	}
 }

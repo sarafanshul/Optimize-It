@@ -10,22 +10,22 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.projectdelta.optimize.activity.EditProjectActivity
+import com.projectdelta.optimize.activity.ProjectInfoActivity
 import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.databinding.ActivityMainBinding
 import com.projectdelta.optimize.fragment.LoadProjectFragment
-import com.projectdelta.optimize.viewModel.MainActivityViewModel
+import com.projectdelta.optimize.viewModel.MainViewModel
 
 
 class MainActivity : AppCompatActivity() {
 
 	lateinit var binding : ActivityMainBinding
-	lateinit var viewModel: MainActivityViewModel
+	lateinit var viewModel: MainViewModel
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( MainActivityViewModel::class.java )
+		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( MainViewModel::class.java )
 
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
 		viewModel.insert( Project( projectName ) )
 
-		Intent( this@MainActivity , EditProjectActivity::class.java ).apply {
+		Intent( this@MainActivity , ProjectInfoActivity::class.java ).apply {
 			putExtra("PROJECT_NAME" , projectName)
 		}.also {
 			startActivity(it)

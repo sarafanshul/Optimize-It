@@ -42,6 +42,12 @@ interface ProjectDao {
 	@Query("SELECT * FROM project WHERE projectName = :projectName")
 	fun getProjectWithWorkersLive(projectName: String) : LiveData<List<ProjectWithWorkers>>
 
+	@Query("SELECT * FROM container WHERE projectName = :projectName AND containerName = :containerName")
+	fun getContainerLive(projectName: String , containerName : String) : LiveData<Container>
+
+	@Query("SELECT * FROM container WHERE projectName = :projectName AND containerName = :containerName")
+	suspend fun getContainer(projectName: String , containerName : String) : Container
+
 	@Update
 	fun updateProject( project: Project )
 

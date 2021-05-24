@@ -3,19 +3,16 @@ package com.projectdelta.optimize.fragment
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.projectdelta.optimize.R
-import com.projectdelta.optimize.activity.EditProjectActivity
+import com.projectdelta.optimize.activity.ProjectInfoActivity
 import com.projectdelta.optimize.adapter.RecyclerViewLoadProjectAdapter
 import com.projectdelta.optimize.data.ProjectDatabase
-import com.projectdelta.optimize.databinding.LayoutEmptyViewBinding
 import com.projectdelta.optimize.databinding.LoadProjectFragmentBinding
 import com.projectdelta.optimize.util.RecyclerItemClickListenr
 import com.projectdelta.optimize.util.StatesRecyclerViewAdapter
@@ -92,7 +89,7 @@ class LoadProjectFragment : Fragment() {
 		MaterialAlertDialogBuilder(requireContext()).apply {
 			setTitle("Continue with ${ adapter.data[position].projectName } ?")
 			setPositiveButton("YES"){_ , _ ->
-				Intent( requireContext() , EditProjectActivity::class.java ).apply {
+				Intent( requireContext() , ProjectInfoActivity::class.java ).apply {
 					putExtra("PROJECT_NAME" , adapter.data[position].projectName )
 				}.also {
 					startActivity(it)

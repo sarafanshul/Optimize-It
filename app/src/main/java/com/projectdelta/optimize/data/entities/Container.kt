@@ -10,8 +10,8 @@ data class Container(
 
 	val projectName : String ,
 
-	val value : Long ,
-	val weight : Long ,
+	var value : Long ,
+	var weight : Long ,
 	var count : Int ,
 	var latitude : Long = 0 , // implement with maps api
 	var longitude : Long = 0

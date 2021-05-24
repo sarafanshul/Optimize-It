@@ -1,0 +1,22 @@
+package com.projectdelta.optimize.viewModel
+
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import com.projectdelta.optimize.data.ProjectDatabase
+import com.projectdelta.optimize.data.entities.Container
+import com.projectdelta.optimize.repository.ProjectRepository
+
+
+class EditContainerViewModel(application: Application) : AndroidViewModel( application ) {
+	private val repository : ProjectRepository
+	init {
+		val projectDao = ProjectDatabase.getInstance(application).projectDao()
+		repository = ProjectRepository(projectDao)
+	}
+
+	fun getContainerDataLive( projectName: String , containerName : String ) : LiveData<Container>{
+		return repository.getContainerLive(projectName, containerName)
+	}
+
+}
