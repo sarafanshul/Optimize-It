@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="156dp"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/edit_container_cw_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="8dp"
+        app:strokeWidth="1dp"
+        android:layout_margin="6dp"
+        app:strokeColor="?colorOnColorOnPrimary"
+        app:cardCornerRadius="8dp"
+        android:clickable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.4">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:id="@+id/edit_container_tw_name"
+                    android:layout_height="wrap_content"
+                    android:text="Container Name"
+                    android:textSize="20dp"
+                    android:singleLine="true"
+                    android:ellipsize="middle"
+                    android:layout_gravity="center"
+                    android:background="@drawable/fill_rounded_corners"
+                    android:textColor="?colorOnPrimary"
+                    android:padding="4dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:id="@+id/edit_container_tw_value"
+                android:layout_height="0dp"
+                android:text="Value"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:layout_weight="0.2"
+                android:gravity="center"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:id="@+id/edit_container_tw_weight"
+                android:text="Weight"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:layout_weight="0.2"
+                android:gravity="center"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Count"
+                android:id="@+id/edit_container_tw_count"
+                android:layout_weight="0.2"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

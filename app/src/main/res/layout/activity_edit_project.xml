@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.EditProjectActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/edit_tw_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="12dp"
+                android:paddingBottom="4dp"
+                android:paddingHorizontal="12dp"
+                android:text="Project Name"
+                android:textStyle="bold"
+                android:textColor="?colorOnColorOnPrimary"
+                android:textSize="35sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="Containers"
+                android:textColor="?colorOnColorOnPrimary"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_tw_name" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/edit_rv_containers"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:text="Workers"
+                android:paddingTop="20dp"
+                android:paddingBottom="12dp"
+                android:textColor="?colorOnColorOnPrimary"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_rv_containers" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/edit_rv_workers"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView3" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/edit_cv_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:cardCornerRadius="10dp"
+                android:elevation="12dp"
+                android:clickable="true"
+                android:backgroundTint="?colorPrimary">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Optimize It!"
+                    android:textSize="27sp"
+                    android:padding="10dp"
+                    android:textColor="?colorOnPrimary"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    </androidx.core.widget.NestedScrollView>-->
+
+</androidx.drawerlayout.widget.DrawerLayout>
