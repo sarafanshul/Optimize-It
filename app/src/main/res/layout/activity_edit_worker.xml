@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.EditContainerActivity">
+    tools:context=".activity.EditWorkerActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16sp"
-            android:text="Edit container"
+            android:text="Edit worker"
             android:textColor="?colorOnColorOnPrimary"
             android:textSize="40dp"
             android:textStyle="bold"
@@ -33,14 +33,16 @@
             app:layout_constraintTop_toBottomOf="@+id/materialTextView4" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/edit_container_tw_id"
+            android:id="@+id/edit_worker_tw_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
             android:paddingHorizontal="20dp"
             android:paddingVertical="14dp"
-            android:text="Container name"
+            android:text="Worker Id"
+            android:singleLine="true"
+            android:ellipsize="middle"
             android:textColor="?colorOnColorOnPrimary"
             android:textSize="26sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +53,7 @@
         </com.google.android.material.textview.MaterialTextView>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/edit_container_tw_project"
+            android:id="@+id/edit_worker_tw_project"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="20dp"
@@ -62,7 +64,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_container_tw_id" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_worker_tw_name" />
 
         <LinearLayout
             android:id="@+id/textInputEditText"
@@ -73,21 +75,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_container_tw_project">
+            app:layout_constraintTop_toBottomOf="@+id/edit_worker_tw_project">
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:backgroundTint="?colorOnColorOnPrimary"
-                android:src="@drawable/ic_action_name" />
+                android:src="@drawable/ic_outline_local_shipping_24" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="0dp"
-                android:id="@+id/edit_container_et_value"
+                android:id="@+id/edit_worker_et_capacity"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:hint="Container value"
+                android:hint="Worker capacity"
                 android:inputType="number"
                 android:padding="16dp"
                 android:textColor="?colorOnColorOnPrimary"
@@ -110,14 +112,14 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:backgroundTint="?colorOnColorOnPrimary"
-                android:src="@drawable/ic_outline_add_to_photos_24" />
+                android:src="@drawable/outline_square_foot_24" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="0dp"
-                android:id="@+id/edit_container_et_count"
+                android:id="@+id/edit_worker_et_dist"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.7"
-                android:hint="Container count"
+                android:hint="Maximum distance"
                 android:inputType="number"
                 android:padding="16dp"
                 android:textColor="?colorOnColorOnPrimary"
@@ -140,14 +142,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:backgroundTint="?colorOnColorOnPrimary"
-                android:src="@drawable/ic_moniter_weight" />
+                android:src="@drawable/ic_baseline_person_24" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/edit_container_et_weight"
                 android:layout_weight="0.7"
-                android:hint="Container weight"
+                android:hint="Driver Id (Optional)"
                 android:inputType="number"
                 android:padding="16dp"
                 android:textColor="?colorOnColorOnPrimary"
@@ -155,63 +156,8 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText2">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:backgroundTint="?colorOnColorOnPrimary"
-                android:clickable="true"
-                android:padding="21dp"
-                android:src="@drawable/ic_baseline_map_24" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_container_et_location_lat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="middle"
-                    android:hint="Delivery Location Latitude"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:paddingHorizontal="16dp"
-                    android:clickable="true"
-                    android:singleLine="true"
-                    android:textSize="26sp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_container_et_location_long"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="middle"
-                    android:hint="Delivery Location Longitude"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:paddingHorizontal="16dp"
-                    android:clickable="true"
-                    android:singleLine="true"
-                    android:textSize="26sp" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/edit_container_tw_cancel"
+            android:id="@+id/edit_worker_tw_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="20dp"
@@ -227,7 +173,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="  SAVE"
-            android:id="@+id/edit_container_tw_save"
+            android:id="@+id/edit_worker_tw_save"
             android:textColor="?colorOnColorOnPrimary"
             android:textSize="25sp"
             android:textStyle="bold"

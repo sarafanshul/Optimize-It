@@ -1,8 +1,11 @@
 package com.projectdelta.optimize.activity
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
 import androidx.lifecycle.ViewModelProvider
+import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.databinding.ActivityEditContainerBinding
 import com.projectdelta.optimize.viewModel.EditContainerViewModel
 
@@ -17,13 +20,49 @@ class EditContainerActivity : AppCompatActivity() {
 		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( EditContainerViewModel::class.java )
 		binding = ActivityEditContainerBinding.inflate(layoutInflater)
 
-		val projectName = intent.getStringExtra("PROJECT_NAME") as String
-		val containerName = intent.getStringExtra("CONTAINER_NAME") as String
-
+		val container : Container = intent.getSerializableExtra("CONTAINER") as Container
 
 		setContentView( binding.root )
 
-//		Log.d( "NAMES" , container.toString())
+		setDefaults(container)
 
+		binding.editContainerTwCancel.setOnClickListener {
+			resultCancel()
+		}
+		binding.editContainerTwSave.setOnClickListener {
+			saveAnsFinish( container )
+		}
+
+	}
+
+	private fun saveAnsFinish( container: Container ) {
+		container.value = binding.editContainerEtValue.text.toString().toLong()
+		container.weight = binding.editContainerEtWeight.text.toString().toLong()
+		container.count = binding.editContainerEtCount.text.toString().toInt()
+//		container.latitude = (binding.editContainerEtLocationLat.toString().toFloat() * COORDINATE_MULTIPLER).toLong()
+//		container.longitude = (binding.editContainerEtLocationLong.toString().toFloat() * COORDINATE_MULTIPLER).toLong()
+		viewModel.update( container )
+		resultOk()
+	}
+
+	private fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
+
+	private fun setDefaults( container: Container ){
+		binding.editContainerTwId.text = container.containerName
+		binding.editContainerTwProject.text = container.projectName
+		binding.editContainerEtValue.text = container.value.toString().toEditable()
+		binding.editContainerEtWeight.text = container.weight.toString().toEditable()
+		binding.editContainerEtCount.text = container.count.toString().toEditable()
+		binding.editContainerEtLocationLat.text = container.latitude.toString().toEditable()
+		binding.editContainerEtLocationLong.text = container.longitude.toString().toEditable()
+	}
+
+	private fun resultOk(){
+		setResult( Activity.RESULT_OK)
+		finish()
+	}
+	private fun resultCancel(){
+		setResult( Activity.RESULT_CANCELED )
+		finish()
 	}
 }

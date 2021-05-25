@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.projectdelta.optimize.data.ProjectDatabase
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Project
+import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.data.entities.relations.ProjectWithContainers
 import com.projectdelta.optimize.data.entities.relations.ProjectWithWorkers
 import com.projectdelta.optimize.repository.ProjectRepository
@@ -42,4 +43,11 @@ class ProjectInfoViewModel(application: Application) : AndroidViewModel( applica
 			repository.insertContainer( container )
 		}
 	}
+
+	fun insertWorker( worker: Worker ){
+		viewModelScope.launch(Dispatchers.IO) {
+			repository.insertWorker( worker )
+		}
+	}
+
 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OptimizeIt">
-        <activity android:name=".activity.EditContainerActivity"></activity>
+        <activity android:name=".activity.EditWorkerActivity"></activity>
+        <activity android:name=".activity.EditContainerActivity" />
         <activity android:name=".activity.ProjectInfoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

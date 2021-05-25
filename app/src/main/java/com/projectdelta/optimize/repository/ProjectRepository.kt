@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.projectdelta.optimize.data.ProjectDao
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Project
+import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.data.entities.relations.ProjectWithContainers
 import com.projectdelta.optimize.data.entities.relations.ProjectWithWorkers
 import javax.inject.Inject
@@ -34,5 +35,17 @@ class ProjectRepository  @Inject constructor(private val projectDao: ProjectDao 
 
 	fun insertContainer(container: Container){
 		projectDao.insertContainer( container )
+	}
+
+	fun updateContainer(container: Container){
+		projectDao.updateContainer(container)
+	}
+
+	fun insertWorker( worker: Worker ){
+		projectDao.insertWorker( worker )
+	}
+
+	fun updateWorker( worker: Worker ){
+		projectDao.updateWorker( worker )
 	}
 }
