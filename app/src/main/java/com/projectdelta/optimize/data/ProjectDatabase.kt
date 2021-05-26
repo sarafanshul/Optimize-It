@@ -3,7 +3,7 @@ package com.projectdelta.optimize.data
 import android.content.Context
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.projectdelta.optimize.DATABASE_NAME
+import com.projectdelta.optimize.constant.DATABASE_NAME
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.data.entities.Worker

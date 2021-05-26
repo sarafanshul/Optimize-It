@@ -22,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.projectdelta.optimize.R
 import com.projectdelta.optimize.adapter.RecyclerViewEditContainersAdapter
 import com.projectdelta.optimize.adapter.RecyclerViewEditWorkerAdapter
+import com.projectdelta.optimize.constant.OPS_TYPE
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.databinding.ActivityProjectInfoBinding
@@ -78,6 +79,37 @@ class ProjectInfoActivity : AppCompatActivity() {
 
 		setRvWorkers( projectName )
 
+		binding.editCvSubmit.setOnClickListener {
+			doWork( projectName )
+		}
+
+	}
+
+	private fun doWork( projectName: String ) {
+		val types = OPS_TYPE.toTypedArray()
+		var selectedItem = 0
+		MaterialAlertDialogBuilder(this).apply {
+			setTitle( "Select type of Optimization" )
+			setSingleChoiceItems( types , 0 ){ dialogInterface , i ->
+				selectedItem = i
+			}
+			setPositiveButton("GO"){_ , _ ->
+				when( selectedItem ){
+					0 -> launchBinPackingActivity( projectName )
+					else -> Toast.makeText(this@ProjectInfoActivity , "Coming soon!" , Toast.LENGTH_LONG).show()
+				}
+			}
+			setNegativeButton("CANCEL"){ _ , _ -> }
+			create()
+		}.show()
+	}
+
+	private fun launchBinPackingActivity(projectName: String) {
+		Intent(this, BinPackingActivity::class.java).apply {
+			putExtra("PROJECT_NAME", projectName)
+		}.also {
+			startActivity(it)
+		}
 	}
 
 	private fun setRvWorkers(projectName: String) {
@@ -154,7 +186,6 @@ class ProjectInfoActivity : AppCompatActivity() {
 		viewModel.insertWorker( newWorker )
 		launchWorkerActivity( newWorker )
 	}
-
 
 	private fun setRvContainers(projectName: String) {
 
@@ -233,4 +264,5 @@ class ProjectInfoActivity : AppCompatActivity() {
 		viewModel.insertContainer( newContainer )
 		launchContainerActivity( newContainer )
 	}
+
 }

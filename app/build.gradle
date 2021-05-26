@@ -64,6 +64,12 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    def retrofit_ver = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
     def lifecycle_ver = "2.2.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_ver"
