@@ -4,5 +4,6 @@ class APIConstant {
 	companion object {
 		const val BASE_API = "https://operation-tools.herokuapp.com"
 		const val TEST_API = "/"
+		const val BIN_PACKING_API = "/binpacking"
 	}
 }

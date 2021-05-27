@@ -6,6 +6,7 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="match_parent"
+        android:paddingVertical="20dp"
         android:layout_height="wrap_content"
         android:text="No recent projects"
         android:layout_gravity="center"

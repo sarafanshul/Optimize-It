@@ -1,12 +1,12 @@
 package com.projectdelta.optimize.service
 
 import com.google.gson.annotations.SerializedName
-import com.projectdelta.optimize.service.models.BinpackingModel
-import com.projectdelta.optimize.service.models.CvrpModel
-import com.projectdelta.optimize.service.models.VrpModel
+import com.projectdelta.optimize.service.models.BinpackingModelTest
+import com.projectdelta.optimize.service.models.CvrpModelTest
+import com.projectdelta.optimize.service.models.VrpModelTest
 
 data class TestResponse(
-	@SerializedName("binpackingModel") var binpackingModel : BinpackingModel,
-	@SerializedName("cvrpModel") var cvrpModel : CvrpModel,
-	@SerializedName("vrpModel") var vrpModel : VrpModel
+	@SerializedName("binpackingModel") var binpackingModelTest : BinpackingModelTest,
+	@SerializedName("cvrpModel") var cvrpModelTest : CvrpModelTest,
+	@SerializedName("vrpModel") var vrpModelTest : VrpModelTest
 )

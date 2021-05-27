@@ -26,6 +26,7 @@ import com.projectdelta.optimize.constant.OPS_TYPE
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.databinding.ActivityProjectInfoBinding
+import com.projectdelta.optimize.util.BinPackingDataConverter
 import com.projectdelta.optimize.util.RecyclerItemClickListenr
 import com.projectdelta.optimize.viewModel.ProjectInfoViewModel
 
@@ -105,8 +106,11 @@ class ProjectInfoActivity : AppCompatActivity() {
 	}
 
 	private fun launchBinPackingActivity(projectName: String) {
+		val DATA = BinPackingDataConverter()
+		DATA.set( adapterContainer.data , adapterWorker.data )
 		Intent(this, BinPackingActivity::class.java).apply {
 			putExtra("PROJECT_NAME", projectName)
+//			putExtra("DATA" , DATA)
 		}.also {
 			startActivity(it)
 		}

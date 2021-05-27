@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:paddingVertical="4dp"
+    android:layout_height="230dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:strokeColor="?colorPrimary"
+        app:strokeWidth="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clickable="true"
+        android:elevation="16dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <LinearLayout
+            android:paddingVertical="10dp"
+            android:layout_width="match_parent"
+            android:paddingHorizontal="16dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="0dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="4dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Worker ID:"
+                    android:layout_weight="0.4"
+                    android:textSize="25sp"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:id="@+id/rv_bin_packing_tw_id"
+                    android:text="20193801"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:textSize="30sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="3dp"
+                    android:layout_weight="0.5">
+
+                    <ProgressBar
+                        android:layout_width="match_parent"
+                        android:id="@+id/rv_bin_packing_pb_value"
+                        style="?android:progressBarStyleHorizontal"
+                        android:progressDrawable="@drawable/shape_progress_bar"
+                        android:layout_height="match_parent"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="VALUE"
+                        android:textSize="20dp"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="3dp"
+                    android:layout_weight="0.5">
+
+                    <ProgressBar
+                        android:layout_width="match_parent"
+                        style="?android:progressBarStyleHorizontal"
+                        android:progressDrawable="@drawable/shape_progress_bar"
+                        android:id="@+id/rv_bin_packing_pb_weight"
+                        android:layout_height="match_parent"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:text="WEIGHT"
+                        android:textSize="20dp"
+                        android:gravity="center"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

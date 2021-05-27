@@ -2,7 +2,7 @@ package com.projectdelta.optimize.service.models
 
 import com.google.gson.annotations.SerializedName
 
-data class CvrpModel (
+data class CvrpModelTest (
 
 	@SerializedName("damands") var damands : String,
 	@SerializedName("depot") var depot : String,

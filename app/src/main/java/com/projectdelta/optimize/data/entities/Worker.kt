@@ -17,6 +17,9 @@ data class Worker(
 	var maxDistance : Long = 1_000_000_000 ,
 
 	@TypeConverters( Converters::class )
-	var route : List<Int> = emptyList()
+	var route : List<Int> = emptyList() ,
+
+	@TypeConverters( Converters::class )
+	var jobs : List<Int> = emptyList()
 
 ):Serializable

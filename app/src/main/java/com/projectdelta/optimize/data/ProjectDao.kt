@@ -28,11 +28,11 @@ interface ProjectDao {
 
 	@Transaction
 	@Query("SELECT * FROM project WHERE projectName = :projectName")
-	fun getProjectWithContainers(projectName: String) : List<ProjectWithContainers>
+	suspend fun getProjectWithContainers(projectName: String) : List<ProjectWithContainers>
 
 	@Transaction
 	@Query("SELECT * FROM project WHERE projectName = :projectName")
-	fun getProjectWithWorkers(projectName: String) : List<ProjectWithWorkers>
+	suspend fun getProjectWithWorkers(projectName: String) : List<ProjectWithWorkers>
 
 	@Transaction
 	@Query("SELECT * FROM project WHERE projectName = :projectName")

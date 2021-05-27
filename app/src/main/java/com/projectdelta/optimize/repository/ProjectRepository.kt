@@ -17,6 +17,14 @@ class ProjectRepository  @Inject constructor(private val projectDao: ProjectDao 
 		projectDao.insertProject( project )
 	}
 
+	suspend fun getProjectWithContainers(projectName : String) : List<ProjectWithContainers> {
+		return projectDao.getProjectWithContainers( projectName )
+	}
+
+	suspend fun getProjectWithWorkers(projectName: String) : List<ProjectWithWorkers> {
+		return projectDao.getProjectWithWorkers( projectName )
+	}
+
 	fun getProjectWithContainersLive(projectName : String) : LiveData<List<ProjectWithContainers>> {
 		return projectDao.getProjectWithContainersLive( projectName )
 	}

@@ -15,4 +15,5 @@ data class Container(
 	var count : Int ,
 	var latitude : Long = 0 , // implement with maps api
 	var longitude : Long = 0
+
 ):Serializable

@@ -40,11 +40,6 @@ class MainActivity : AppCompatActivity() {
 
 		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( MainViewModel::class.java )
 
-		OkHttpClient.Builder()
-			.connectTimeout( MAX_TIME_OUT_SECONDS, TimeUnit.SECONDS)
-			.readTimeout( MAX_TIME_OUT_SECONDS, TimeUnit.SECONDS)
-			.writeTimeout( MAX_TIME_OUT_SECONDS, TimeUnit.SECONDS)
-
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
@@ -66,31 +61,31 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	private fun testApiMain() {
-		val progressBar = ProgressDialog(this).apply {
+		val progressBar = ProgressDialog(this , R.style.ProgressDialogStyle).apply {
 			setCancelable(false)
 			setMessage("Waiting for response")
 		}
 		progressBar.show()
 
 		lifecycleScope.launchWhenCreated {
-			val response = try{
+			val response = try {
 				RetrofitInstance.apiTest.getTest()
-			}catch ( e : IOException){
+			} catch (e: IOException) {
 				e.printStackTrace()
-				Log.d("TestAPI" , "IO Exception")
-				Snackbar.make(binding.root , "Some error occurred!" , Snackbar.LENGTH_LONG).show()
+				Log.d("TestAPI", "IO Exception")
+				Toast.makeText(this@MainActivity, "Some error occurred!", Toast.LENGTH_LONG).show()
 				progressBar.dismiss()
 				return@launchWhenCreated
-			}catch ( e : HttpException ){
+			} catch (e: HttpException) {
 				e.printStackTrace()
-				Log.d("TestAPI" , "HTTP Exception")
-				Snackbar.make(binding.root , "Some error occurred!" , Snackbar.LENGTH_LONG).show()
+				Log.d("TestAPI", "HTTP Exception")
+				Toast.makeText(this@MainActivity, "Some error occurred!", Toast.LENGTH_LONG).show()
 				progressBar.dismiss()
 				return@launchWhenCreated
 			}
-			if( response.isSuccessful && response.body() != null ) {
+			if (response.isSuccessful && response.body() != null) {
 				Log.d("RESPONSE", response.body().toString())
-				Snackbar.make(binding.root , "Server online!" , Snackbar.LENGTH_LONG).show()
+				Toast.makeText(this@MainActivity, "Server online!", Toast.LENGTH_LONG).show()
 				progressBar.dismiss()
 			}
 		}
