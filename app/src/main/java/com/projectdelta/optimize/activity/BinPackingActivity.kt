@@ -62,7 +62,7 @@ class BinPackingActivity : AppCompatActivity() {
 			viewModel.converter.set( viewModel.containers , viewModel.workers )
 
 			val model = viewModel.converter.fromRawToRequest()
-
+			Toast.makeText(this@BinPackingActivity , "Waiting for response" , Toast.LENGTH_LONG).show()
 			val response = try {
 				RetrofitInstance.apiBinPacking.post( model )
 			} catch (e: IOException) {
@@ -101,6 +101,6 @@ class BinPackingActivity : AppCompatActivity() {
 		adapter = RecyclerViewBinPackingAdapter(this)
 		val statesAdapter = StatesRecyclerViewAdapter(adapter , emptyView , emptyView , emptyView)
 		binding.binPackingRv.adapter = statesAdapter
-		adapter.set( viewModel.workers )
+		adapter.set( viewModel.workers , viewModel.containers , viewModel.converter.responseModel.totalValuePacked )
 	}
 }

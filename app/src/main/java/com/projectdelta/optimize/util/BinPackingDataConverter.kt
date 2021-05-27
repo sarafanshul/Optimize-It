@@ -15,9 +15,6 @@ class BinPackingDataConverter : Parcelable {
 	lateinit var workers : List<Worker>
 	lateinit var responseModel : BinPackingResponse
 
-	var values = emptyList<Long>()
-	var weights = emptyList<Long>()
-	var bin_capacities = emptyList<Long>()
 	var prefixContainerIdx = mutableListOf<Int>()
 
 	var totalValue = 0L
@@ -39,7 +36,7 @@ class BinPackingDataConverter : Parcelable {
 
 		totalValue = 0
 		totalWeight = 0
-		bin_capacities = List( workers.size) { i -> workers[i].capacity }
+		var bin_capacities = List( workers.size) { i -> workers[i].capacity }
 
 		prefixContainerIdx = MutableList( containers.size) { i -> containers[i].count }
 
@@ -53,9 +50,7 @@ class BinPackingDataConverter : Parcelable {
 			totalValue += container.count * container.value
 			totalWeight += container.count * container.weight
 		}
-		values = v.toList()
-		weights = w.toList()
-		return BinPackingRequestModel( weights , values, bin_capacities )
+		return BinPackingRequestModel( w.toList() , v.toList(), bin_capacities )
 	}
 
 	fun fromResponseToRaw(){
@@ -74,7 +69,7 @@ class BinPackingDataConverter : Parcelable {
 		// binary search for container idx
 		val result = Array( data.size ){ 0 }
 		for( i in data.indices ) {
-			var l = 0 ; var r = containers.size ; var m = l
+			var l = -1 ; var r = containers.size ; var m = l
 			while (l + 1 < r) {
 				m = (l + r) / 2
 				if (prefixContainerIdx[m] >= data[i] )
