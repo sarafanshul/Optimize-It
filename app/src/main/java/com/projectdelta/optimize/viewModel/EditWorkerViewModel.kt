@@ -7,6 +7,7 @@ import com.projectdelta.optimize.data.ProjectDatabase
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.repository.ProjectRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class EditWorkerViewModel(application: Application) : AndroidViewModel( application ) {
@@ -21,4 +22,11 @@ class EditWorkerViewModel(application: Application) : AndroidViewModel( applicat
 			repository.updateWorker( worker )
 		}
 	}
+
+	fun delete( worker: Worker ){
+		GlobalScope.launch(Dispatchers.IO) {
+			repository.deleteWorker( worker )
+		}
+	}
+
 }

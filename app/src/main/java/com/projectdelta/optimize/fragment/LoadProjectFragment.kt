@@ -78,9 +78,9 @@ class LoadProjectFragment : Fragment() {
 		)
 
 		binding.loadProjectTwCancel.setOnClickListener {
+//			not storing in stack
 			requireActivity().supportFragmentManager.popBackStack()
 		}
-
 		// not needed
 		binding.loadProjectTwLoad.visibility = View.GONE
 	}

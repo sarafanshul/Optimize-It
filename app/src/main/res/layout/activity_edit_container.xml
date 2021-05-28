@@ -8,209 +8,222 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16sp"
-            android:text="Edit container"
-            android:textColor="?colorOnColorOnPrimary"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
-            android:id="@+id/view"
-            style="@style/Divider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialTextView4" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/edit_container_tw_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="14dp"
-            android:text="Container name"
-            android:textColor="?colorOnColorOnPrimary"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view">
-
-        </com.google.android.material.textview.MaterialTextView>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/edit_container_tw_project"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="14dp"
-            android:text="Project name"
-            android:textColor="?colorOnColorOnPrimary"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_container_tw_id" />
-
         <LinearLayout
-            android:id="@+id/textInputEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_container_tw_project">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:backgroundTint="?colorOnColorOnPrimary"
-                android:src="@drawable/ic_action_name" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="0dp"
-                android:id="@+id/edit_container_et_value"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/materialTextView4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:hint="Container value"
-                android:inputType="number"
-                android:padding="16dp"
+                android:padding="16sp"
+                android:text="Edit container"
                 android:textColor="?colorOnColorOnPrimary"
-                android:textSize="26sp" />
+                android:textSize="40dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+            <View
+                android:id="@+id/view"
+                style="@style/Divider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialTextView4" />
 
-        <LinearLayout
-            android:id="@+id/textInputEditText1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:backgroundTint="?colorOnColorOnPrimary"
-                android:src="@drawable/ic_moniter_weight" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:id="@+id/edit_container_et_weight"
-                android:layout_weight="0.7"
-                android:hint="Container weight"
-                android:inputType="number"
-                android:padding="16dp"
-                android:textColor="?colorOnColorOnPrimary"
-                android:textSize="26sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/textInputEditText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:backgroundTint="?colorOnColorOnPrimary"
-                android:src="@drawable/ic_outline_add_to_photos_24" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="0dp"
-                android:id="@+id/edit_container_et_count"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/edit_container_tw_id"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:hint="Container count"
-                android:inputType="number"
-                android:padding="16dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp"
+                android:text="Container name"
                 android:textColor="?colorOnColorOnPrimary"
-                android:textSize="26sp" />
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
 
-        </LinearLayout>
+            </com.google.android.material.textview.MaterialTextView>
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputEditText2">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.3"
-                android:backgroundTint="?colorOnColorOnPrimary"
-                android:clickable="true"
-                android:padding="21dp"
-                android:src="@drawable/ic_baseline_map_24" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/edit_container_tw_project"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="14dp"
+                android:text="Project name"
+                android:textColor="?colorOnColorOnPrimary"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_container_tw_id" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:id="@+id/textInputEditText"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:orientation="vertical">
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_container_tw_project">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:backgroundTint="?colorOnColorOnPrimary"
+                    android:src="@drawable/ic_action_name" />
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_container_et_location_lat"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:id="@+id/edit_container_et_value"
                     android:layout_height="wrap_content"
-                    android:ellipsize="middle"
-                    android:hint="Delivery Location Latitude"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:paddingHorizontal="16dp"
-                    android:clickable="true"
-                    android:singleLine="true"
-                    android:textSize="26sp" />
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_container_et_location_long"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="middle"
-                    android:hint="Delivery Location Longitude"
-                    android:inputType="numberDecimal|numberSigned"
-                    android:paddingHorizontal="16dp"
-                    android:clickable="true"
-                    android:singleLine="true"
+                    android:layout_weight="0.7"
+                    android:hint="Container value"
+                    android:inputType="number"
+                    android:padding="16dp"
+                    android:textColor="?colorOnColorOnPrimary"
                     android:textSize="26sp" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/textInputEditText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputEditText">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:backgroundTint="?colorOnColorOnPrimary"
+                    android:src="@drawable/ic_moniter_weight" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/edit_container_et_weight"
+                    android:layout_weight="0.7"
+                    android:hint="Container weight"
+                    android:inputType="number"
+                    android:padding="16dp"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:textSize="26sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/textInputEditText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputEditText1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:backgroundTint="?colorOnColorOnPrimary"
+                    android:src="@drawable/ic_outline_add_to_photos_24" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="0dp"
+                    android:id="@+id/edit_container_et_count"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:hint="Container count"
+                    android:inputType="number"
+                    android:padding="16dp"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:textSize="26sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputEditText2">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:backgroundTint="?colorOnColorOnPrimary"
+                    android:clickable="true"
+                    android:padding="21dp"
+                    android:src="@drawable/ic_baseline_map_24" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_container_et_location_lat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="middle"
+                        android:hint="Delivery Location Latitude"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:paddingHorizontal="16dp"
+                        android:clickable="true"
+                        android:singleLine="true"
+                        android:textSize="26sp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_container_et_location_long"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="middle"
+                        android:hint="Delivery Location Longitude"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:paddingHorizontal="16dp"
+                        android:clickable="true"
+                        android:singleLine="true"
+                        android:textSize="26sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
+
+        </ScrollView>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/edit_container_tw_cancel"
@@ -219,22 +232,20 @@
             android:padding="20dp"
             android:text="CANCEL"
             android:textColor="?colorError"
+            android:visibility="gone"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="  SAVE"
-            android:id="@+id/edit_container_tw_save"
-            android:textColor="?colorOnColorOnPrimary"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_container_tw_save"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_baseline_save_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

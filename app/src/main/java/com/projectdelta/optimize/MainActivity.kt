@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 		supportFragmentManager.beginTransaction().apply {
 			setCustomAnimations(R.anim.enter_anim , R.anim.exit_anim , R.anim.enter_anim , R.anim.exit_anim)
 			add( binding.mainFcvMain.id , LoadProjectFragment() )
-			addToBackStack(null)
+			addToBackStack(null) // not needed actually
 			commit()
 		}
 	}

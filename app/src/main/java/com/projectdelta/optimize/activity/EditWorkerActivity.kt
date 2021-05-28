@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import androidx.lifecycle.ViewModelProvider
+import com.projectdelta.optimize.R
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.databinding.ActivityEditWorkerBinding
+import com.projectdelta.optimize.fragment.LoadProjectFragment
+import com.projectdelta.optimize.fragment.ShowJobsFragment
 import com.projectdelta.optimize.viewModel.EditWorkerViewModel
 
 class EditWorkerActivity : AppCompatActivity() {
@@ -31,7 +34,39 @@ class EditWorkerActivity : AppCompatActivity() {
 		binding.editWorkerTwSave.setOnClickListener {
 			saveAndFinish( worker )
 		}
+		binding.editWorkerIvDelete.setOnClickListener {
+			deleteAndFinish( worker )
+		}
 
+		binding.editWorkerAddCwJobs.setOnClickListener {
+			startShowJobsFragment( worker )
+		}
+
+	}
+
+	private fun startShowJobsFragment(worker: Worker) {
+		val bundle = Bundle()
+		bundle.putSerializable("WORKER" , worker)
+		val fragment = ShowJobsFragment()
+		fragment.arguments = bundle
+
+		supportFragmentManager.beginTransaction().apply {
+			setCustomAnimations(
+				R.anim.enter_anim,
+				R.anim.exit_anim,
+				R.anim.enter_anim,
+				R.anim.exit_anim
+			)
+			replace(binding.editWorkerFc.id, fragment)
+			addToBackStack(null)
+			commit()
+		}
+	}
+
+
+	private fun deleteAndFinish(worker: Worker) {
+		viewModel.delete( worker )
+		resultOk()
 	}
 
 	private fun saveAndFinish(worker: Worker) {

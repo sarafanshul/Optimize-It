@@ -48,6 +48,9 @@ interface ProjectDao {
 	@Query("SELECT * FROM container WHERE projectName = :projectName AND containerName = :containerName")
 	suspend fun getContainer(projectName: String , containerName : String) : Container
 
+	@Query("SELECT * FROM worker WHERE projectName = :projectName AND workerId = :workerId")
+	fun getworkerLive(projectName: String , workerId : Long) : LiveData<Worker>
+
 	@Update
 	fun updateProject( project: Project )
 
@@ -56,5 +59,8 @@ interface ProjectDao {
 
 	@Update
 	fun updateWorker( worker: Worker)
+
+	@Delete
+	fun deleteWorker( worker: Worker )
 
 }
