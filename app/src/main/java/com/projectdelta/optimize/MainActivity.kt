@@ -39,8 +39,9 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 
 		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( MainViewModel::class.java )
-
+		setTheme(R.style.Theme_OptimizeIt)
 		binding = ActivityMainBinding.inflate(layoutInflater)
+
 		setContentView(binding.root)
 
 		// add new project

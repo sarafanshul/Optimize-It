@@ -20,19 +20,36 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.google.android.material.textview.MaterialTextView
+            <LinearLayout
                 android:id="@+id/materialTextView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16sp"
-                android:text="Edit container"
-                android:textColor="?colorOnColorOnPrimary"
-                android:textSize="40dp"
-                android:textStyle="bold"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:padding="16dp"
+                    android:text="Edit container"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:textSize="40dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/edit_container_iv_delete"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:clickable="true"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_baseline_delete_outline_24" />
+
+            </LinearLayout>
 
             <View
                 android:id="@+id/view"
@@ -40,6 +57,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/materialTextView4" />
+
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/edit_container_tw_id"

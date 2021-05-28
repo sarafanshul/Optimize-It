@@ -16,4 +16,12 @@
         <item name="colorOnColorOnPrimary">@color/wet_asphalt</item>
         <item name="fontFamily">@font/product_sans_font_family</item>
     </style>
+
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="background">@drawable/splash_screen</item>
+        <item name="android:statusBarColor">@color/asphalt</item>
+
+    </style>
+
 </resources>

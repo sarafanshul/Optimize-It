@@ -1,5 +1,6 @@
 package com.projectdelta.optimize.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,7 +27,7 @@ class RecyclerViewShowJobsAdapter :
 	}
 
 	override fun getItemCount(): Int {
-		if( this::data.isInitialized ) data.size
+		if( this::data.isInitialized ) return data.size
 		return 0
 	}
 

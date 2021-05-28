@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="156dp"
-    android:layout_height="160dp"
+    android:layout_height="165dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
@@ -43,34 +43,82 @@
             </LinearLayout>
 
 
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="match_parent"
-                android:id="@+id/edit_container_tw_value"
-                android:layout_height="0dp"
-                android:text="Value"
-                android:singleLine="true"
-                android:ellipsize="middle"
-                android:layout_weight="0.2"
-                android:gravity="center"/>
-
-            <com.google.android.material.textview.MaterialTextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:id="@+id/edit_container_tw_weight"
-                android:text="Weight"
-                android:singleLine="true"
-                android:ellipsize="middle"
                 android:layout_weight="0.2"
-                android:gravity="center"/>
+                android:orientation="horizontal">
 
-            <com.google.android.material.textview.MaterialTextView
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_action_name"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.8"
+                    android:id="@+id/edit_container_tw_value"
+                    android:layout_height="wrap_content"
+                    android:text="Value"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Count"
-                android:id="@+id/edit_container_tw_count"
                 android:layout_weight="0.2"
-                android:gravity="center"/>
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_moniter_weight"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edit_container_tw_weight"
+                    android:text="Weight"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.8"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:src="@drawable/ic_outline_add_to_photos_24"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Count"
+                    android:singleLine="true"
+                    android:ellipsize="marquee"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/edit_container_tw_count"
+                    android:layout_weight="0.8"
+                    android:gravity="center"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

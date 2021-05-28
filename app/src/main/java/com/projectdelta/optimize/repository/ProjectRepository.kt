@@ -60,4 +60,8 @@ class ProjectRepository  @Inject constructor(private val projectDao: ProjectDao 
 	fun deleteWorker( worker: Worker ){
 		projectDao.deleteWorker( worker )
 	}
+
+	fun deleteContainer( container: Container ){
+		projectDao.deleteContainer( container )
+	}
 }

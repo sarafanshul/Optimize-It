@@ -63,4 +63,7 @@ interface ProjectDao {
 	@Delete
 	fun deleteWorker( worker: Worker )
 
+	@Delete
+	fun deleteContainer( container: Container )
+
 }

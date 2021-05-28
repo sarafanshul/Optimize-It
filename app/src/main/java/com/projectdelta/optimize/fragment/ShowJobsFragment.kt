@@ -56,7 +56,7 @@ class ShowJobsFragment : Fragment() {
 		binding.showJobsTwName.text = worker.workerId.toString()
 
 		adapter = RecyclerViewShowJobsAdapter()
-		binding.showJobsRv.layoutManager = LinearLayoutManager(activity)
+		binding.showJobsRv.layoutManager = LinearLayoutManager( activity )
 		val emptyView : View = layoutInflater.inflate( R.layout.layout_empty_view , binding.showJobsRv , false )
 		val statesRecyclerViewAdapter = StatesRecyclerViewAdapter( adapter , emptyView , emptyView , emptyView )
 		binding.showJobsRv.adapter = statesRecyclerViewAdapter

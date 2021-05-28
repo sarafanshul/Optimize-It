@@ -33,6 +33,11 @@ class EditContainerActivity : AppCompatActivity() {
 			saveAnsFinish( container )
 		}
 
+		binding.editContainerIvDelete.setOnClickListener {
+			viewModel.delete( container )
+			resultOk()
+		}
+
 	}
 
 	private fun saveAnsFinish( container: Container ) {

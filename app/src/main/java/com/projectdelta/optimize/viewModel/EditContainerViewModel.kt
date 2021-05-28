@@ -8,6 +8,7 @@ import com.projectdelta.optimize.data.ProjectDatabase
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.repository.ProjectRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 
@@ -24,6 +25,12 @@ class EditContainerViewModel(application: Application) : AndroidViewModel( appli
 	fun update( container: Container ){
 		viewModelScope.launch (Dispatchers.IO){
 			repository.updateContainer(container)
+		}
+	}
+
+	fun delete( container: Container ){
+		GlobalScope.launch(Dispatchers.IO) {
+			repository.deleteContainer( container )
 		}
 	}
 }

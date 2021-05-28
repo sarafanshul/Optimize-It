@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.ProjectInfoActivity">
 
-<!--    <androidx.core.widget.NestedScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -24,7 +21,7 @@
                 android:paddingHorizontal="16dp"
                 android:text="Project Name"
                 android:textStyle="bold"
-                android:textColor="?colorOnColorOnPrimary"
+                android:textColor="?colorPrimary"
                 android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -47,7 +44,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/edit_rv_containers"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layoutAnimation="@anim/layout_animation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -72,7 +69,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/edit_rv_workers"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="wrap_content"
                 android:layoutAnimation="@anim/layout_animation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
