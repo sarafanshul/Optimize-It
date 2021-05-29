@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:id="@+id/bin_packing_ll"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="@dimen/base_padding">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:padding="16sp"
                 android:text="Summary"
                 android:textColor="?colorOnColorOnPrimary"
-                android:textSize="40sp"
+                android:textSize="@dimen/H1"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -61,6 +61,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
                         android:text="234234/1231231"
                         android:textColor="?colorOnColorOnPrimary"
                         android:textSize="20sp"
@@ -86,6 +88,8 @@
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
                         android:text="234234/1231231"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
                         android:textColor="?colorOnColorOnPrimary"
                         android:textSize="20sp"
                         android:textStyle="bold" />

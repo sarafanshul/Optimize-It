@@ -21,7 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/base_padding"
                 android:paddingBottom="70dp"
                 android:orientation="vertical">
 
@@ -42,7 +42,7 @@
                         android:padding="16dp"
                         android:text="Edit worker"
                         android:textColor="?colorOnColorOnPrimary"
-                        android:textSize="40dp"
+                        android:textSize="@dimen/H1"
                         android:textStyle="bold" />
 
                     <ImageView

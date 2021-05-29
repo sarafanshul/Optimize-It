@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/base_padding"
         android:orientation="vertical">
 
         <com.google.android.material.textview.MaterialTextView
@@ -21,7 +21,7 @@
             android:paddingHorizontal="8dp"
             android:paddingVertical="14dp"
             android:text="Containers"
-            android:textSize="45dp"
+            android:textSize="@dimen/H1"
             android:textColor="?colorSecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
