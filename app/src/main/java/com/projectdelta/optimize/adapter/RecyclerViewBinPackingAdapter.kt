@@ -8,10 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.databinding.LayoutRvBinPackingBinding
-import com.projectdelta.optimize.databinding.LayoutRvLoadBinding
-import com.projectdelta.optimize.service.BinPackingResponse
-import com.projectdelta.optimize.util.BinPackingDataConverter
-import kotlin.random.Random
 
 
 class RecyclerViewBinPackingAdapter(mContext : Context) : RecyclerView.Adapter< RecyclerViewBinPackingAdapter.LayoutViewHolder > ( ) {

@@ -1,4 +1,4 @@
-package com.projectdelta.optimize.service.models
+package com.projectdelta.optimize.service.request
 
 import com.google.gson.annotations.SerializedName
 

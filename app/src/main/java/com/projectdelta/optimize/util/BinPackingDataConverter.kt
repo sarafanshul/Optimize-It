@@ -4,8 +4,8 @@ import android.os.Parcelable
 import android.util.Log
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Worker
-import com.projectdelta.optimize.service.BinPackingResponse
-import com.projectdelta.optimize.service.models.BinPackingRequestModel
+import com.projectdelta.optimize.service.response.BinPackingResponse
+import com.projectdelta.optimize.service.request.BinPackingRequestModel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -26,17 +26,17 @@ class BinPackingDataConverter : Parcelable {
 	}
 
 
-	fun set( model: BinPackingResponse ){
+	fun set( model: BinPackingResponse){
 		responseModel = model
 	}
 
-	fun fromRawToRequest() : BinPackingRequestModel{
+	fun fromRawToRequest() : BinPackingRequestModel {
 		if( ! this::containers.isInitialized || ! this::workers.isInitialized )
 			return BinPackingRequestModel(emptyList() ,emptyList() ,emptyList())
 
 		totalValue = 0
 		totalWeight = 0
-		var bin_capacities = List( workers.size) { i -> workers[i].capacity }
+		val bin_capacities = List( workers.size) { i -> workers[i].capacity }
 
 		prefixContainerIdx = MutableList( containers.size) { i -> containers[i].count }
 
@@ -54,7 +54,6 @@ class BinPackingDataConverter : Parcelable {
 	}
 
 	fun fromResponseToRaw(){
-		Log.d("BIN_S_PREF" , prefixContainerIdx.toString())
 		if( ! this::containers.isInitialized ||
 			! this::workers.isInitialized ||
 			! this::responseModel.isInitialized ) return
@@ -62,7 +61,6 @@ class BinPackingDataConverter : Parcelable {
 		for( i in responseModel.bins ){
 			workers[i.key.trim().toInt()].jobs = getContainer( i.value )
 		}
-		Log.d("FINAL API OBJECT" , workers.toString())
 	}
 
 	private fun getContainer( data : List<Int> ) : List<Int>{
@@ -79,8 +77,6 @@ class BinPackingDataConverter : Parcelable {
 			}
 			result[i] = r
 		}
-		Log.d("BIN_S_DATA" , data.toString())
-		Log.d("BIN_S_RES " , result.toList().toString())
 		return result.toList() // fuck type
 	}
 }

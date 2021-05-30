@@ -24,7 +24,7 @@ interface ProjectDao {
 	fun getAllProjects() : LiveData<List<Project>>
 
 	@Query( "SELECT * FROM project WHERE projectName = :projectName" )
-	fun getProjectWithName( projectName : String ) : List<Project>
+	suspend fun getProjectWithName( projectName : String ) : Project
 
 	@Transaction
 	@Query("SELECT * FROM project WHERE projectName = :projectName")

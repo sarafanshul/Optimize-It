@@ -20,6 +20,8 @@ data class Worker(
 	var route : List<Int> = emptyList() ,
 
 	@TypeConverters( Converters::class )
-	var jobs : List<Int> = emptyList()
+	var jobs : List<Int> = emptyList() ,
+
+	var distanceTravelled : Long = 0
 
 ):Serializable

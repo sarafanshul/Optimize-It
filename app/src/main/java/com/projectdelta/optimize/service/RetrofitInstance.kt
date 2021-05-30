@@ -3,6 +3,8 @@ package com.projectdelta.optimize.service
 import com.projectdelta.optimize.constant.APIConstant
 import com.projectdelta.optimize.constant.MAX_TIME_OUT_SECONDS
 import com.projectdelta.optimize.service.models.BinPackingApi
+import com.projectdelta.optimize.service.models.TestApi
+import com.projectdelta.optimize.service.models.CVRPApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -32,6 +34,15 @@ object RetrofitInstance {
 			.addConverterFactory(GsonConverterFactory.create())
 			.build()
 			.create( BinPackingApi::class.java )
+	}
+
+	val apiCVRP : CVRPApi by lazy {
+		Retrofit.Builder()
+			.client( newClient )
+			.baseUrl( APIConstant.BASE_API )
+			.addConverterFactory( GsonConverterFactory.create() )
+			.build()
+			.create( CVRPApi::class.java )
 	}
 
 //	val apiBinPacking : BinPackingApi by lazy {}

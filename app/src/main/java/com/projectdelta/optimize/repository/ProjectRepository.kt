@@ -37,6 +37,10 @@ class ProjectRepository  @Inject constructor(private val projectDao: ProjectDao 
 		return projectDao.getContainerLive( projectName, containerName )
 	}
 
+	suspend fun getProjectWithName( projectName: String ) : Project{
+		return projectDao.getProjectWithName( projectName )
+	}
+
 	suspend fun getContainer( projectName: String , containerName : String ) : Container {
 		return projectDao.getContainer( projectName, containerName )
 	}

@@ -1,9 +1,9 @@
-package com.projectdelta.optimize.service.models
+package com.projectdelta.optimize.service.response
 
 import com.google.gson.annotations.SerializedName
 
 
-data class VrpModelTest (
+data class TestVRPResponseModel (
 
 	@SerializedName("depot") var depot : String,
 	@SerializedName("locations") var locations : String,

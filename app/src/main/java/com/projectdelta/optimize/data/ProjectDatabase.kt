@@ -16,7 +16,7 @@ import java.util.concurrent.Executors
 		Container::class ,
 		Worker::class
 	],
-	version = 3,
+	version = 4,
 	exportSchema = false
 )
 

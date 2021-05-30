@@ -97,6 +97,7 @@ class ProjectInfoActivity : AppCompatActivity() {
 			setPositiveButton("GO"){_ , _ ->
 				when( selectedItem ){
 					0 -> launchBinPackingActivity( projectName )
+					2 -> launchCVRPActivity( projectName )
 					else -> Toast.makeText(this@ProjectInfoActivity , "Coming soon!" , Toast.LENGTH_LONG).show()
 				}
 			}
@@ -105,12 +106,17 @@ class ProjectInfoActivity : AppCompatActivity() {
 		}.show()
 	}
 
+	private fun launchCVRPActivity(projectName: String) {
+		Intent(this, CVRPActivity::class.java).apply {
+			putExtra("PROJECT_NAME", projectName)
+		}.also {
+			startActivity(it)
+		}
+	}
+
 	private fun launchBinPackingActivity(projectName: String) {
-		val DATA = BinPackingDataConverter()
-		DATA.set( adapterContainer.data , adapterWorker.data )
 		Intent(this, BinPackingActivity::class.java).apply {
 			putExtra("PROJECT_NAME", projectName)
-//			putExtra("DATA" , DATA)
 		}.also {
 			startActivity(it)
 		}

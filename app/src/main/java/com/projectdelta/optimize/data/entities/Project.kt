@@ -9,6 +9,8 @@ data class Project (
 	@PrimaryKey(autoGenerate = false)
 	val projectName : String ,
 
-	var numWorkers : Int = 0
+	var numWorkers : Int = 0 ,
+	var depotLatitude : Long = 0 ,
+	var depotLongitude : Long = 0
 
 ):Serializable
