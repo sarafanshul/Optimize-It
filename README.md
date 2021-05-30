@@ -5,7 +5,7 @@ Easy to use app for logistics management with a wide scope for many other uses l
 
 ## Preview
 
-![](/assets/mockups-v1/preview/previewed%20(1).png)
+![](/assets/mockups-v1/anim/ezgif.com-video-to-gif.gif)
 
 ![](/assets/mockups-v1/preview/merge_from_ofoct.jpg)
 
