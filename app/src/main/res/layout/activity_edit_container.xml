@@ -199,6 +199,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
+                    android:id="@+id/ed_container_add_iv_map"
                     android:backgroundTint="?colorOnColorOnPrimary"
                     android:clickable="true"
                     android:padding="21dp"

@@ -26,7 +26,6 @@ import com.projectdelta.optimize.constant.OPS_TYPE
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.databinding.ActivityProjectInfoBinding
-import com.projectdelta.optimize.util.BinPackingDataConverter
 import com.projectdelta.optimize.util.RecyclerItemClickListenr
 import com.projectdelta.optimize.viewModel.ProjectInfoViewModel
 
@@ -67,25 +66,36 @@ class ProjectInfoActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( ProjectInfoViewModel::class.java )
+		viewModel = ViewModelProvider(
+			this,
+			ViewModelProvider.AndroidViewModelFactory.getInstance(this.application)
+		).get(ProjectInfoViewModel::class.java)
 
 		binding = ActivityProjectInfoBinding.inflate(layoutInflater)
-		setContentView( binding.root )
+		setContentView(binding.root)
 
 		val projectName = intent.getStringExtra("PROJECT_NAME") as String
 
 		binding.editTwName.text = projectName
 
-		setRvContainers( projectName )
+		setRvContainers(projectName)
 
-		setRvWorkers( projectName )
+		setRvWorkers(projectName)
 
 		binding.editCvSubmit.setOnClickListener {
-			doWork( projectName )
+			doWork(projectName)
 		}
 
 		binding.editIvLocation.setOnClickListener {
-			Toast.makeText(this , "Not Yet Implemented!" , Toast.LENGTH_LONG).show()
+			Toast.makeText(this, "Not Yet Implemented!", Toast.LENGTH_LONG).show()
+		}
+
+		binding.editIvLocation.setOnClickListener {
+			Intent( this , DepotMapsActivity::class.java ).apply {
+				putExtra("PROJECT_NAME" , projectName)
+			}.also {
+				startActivity( it )
+			}
 		}
 
 	}

@@ -6,6 +6,7 @@ import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.data.entities.Worker
 import com.projectdelta.optimize.service.request.CVRPRequestModel
 import com.projectdelta.optimize.service.response.CVRPResponse
+import java.lang.Exception
 
 class CVRPDataConverter {
 

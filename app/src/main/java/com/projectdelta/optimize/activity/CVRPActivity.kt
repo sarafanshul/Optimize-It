@@ -79,7 +79,7 @@ class CVRPActivity : AppCompatActivity() {
 				Toast.makeText(this@CVRPActivity , "Some error occurred!" , Toast.LENGTH_LONG).show()
 				return@launchWhenCreated
 			}
-			if (response.isSuccessful && response.body() != null) {
+			if (response.isSuccessful && response.body() != null && !response.body()!!.RouteDistance.isNullOrEmpty()) {
 				Log.d("RESPONSE", response.body().toString())
 				viewModel.converter.set(response.body()!!)
 				viewModel.converter.fromResponseToRaw()
@@ -87,6 +87,9 @@ class CVRPActivity : AppCompatActivity() {
 				// binding.binPackingLl.visibility = View.VISIBLE
 				viewModel.updateWorkers( )
 				createView( projectName )
+			}else {
+				Toast.makeText(this@CVRPActivity , "Some error occurred!" , Toast.LENGTH_LONG).show()
+				finish()
 			}
 
 		}

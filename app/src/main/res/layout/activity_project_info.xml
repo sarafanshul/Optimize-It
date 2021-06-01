@@ -8,118 +8,129 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/base_padding">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/edit_ll"
+            <androidx.fragment.app.FragmentContainerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
+                android:layout_height="match_parent"
+                android:id="@+id/info_maps_container"/>
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="0dp"
-                    android:id="@+id/edit_tw_name"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.7"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="4dp"
-                    android:paddingHorizontal="@dimen/left_margin"
-                    android:text="Project Name"
-                    android:textStyle="bold"
-                    android:textColor="?colorPrimary"
-                    android:textSize="40sp"/>
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:id="@+id/edit_iv_location"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.2"
-                    android:paddingVertical="8dp"
-                    android:src="@drawable/ic_baseline_edit_location_24"
-                    android:clickable="true"/>
-
-            </LinearLayout>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView2"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="12dp"
-                android:paddingHorizontal="@dimen/left_margin"
-                android:text="Containers"
-                android:textColor="?colorOnColorOnPrimary"
-                android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_ll" />
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/base_padding">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/edit_rv_containers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutAnimation="@anim/layout_animation"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/materialTextView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="@dimen/left_margin"
-                android:text="Workers"
-                android:paddingTop="20dp"
-                android:paddingBottom="12dp"
-                android:textColor="?colorOnColorOnPrimary"
-                android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_rv_containers" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/edit_rv_workers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layoutAnimation="@anim/layout_animation"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialTextView3" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/edit_cv_submit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:cardCornerRadius="10dp"
-                android:elevation="12dp"
-                android:clickable="true"
-                android:layout_marginHorizontal="@dimen/left_margin"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="?colorPrimary">
-
-                <com.google.android.material.textview.MaterialTextView
+                <LinearLayout
+                    android:id="@+id/edit_ll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Optimize It!"
-                    android:textSize="27sp"
-                    android:padding="10dp"
-                    android:textColor="?colorOnPrimary"
-                    android:gravity="center"
-                    android:textStyle="bold"/>
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
 
-            </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:id="@+id/edit_tw_name"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="4dp"
+                        android:paddingHorizontal="@dimen/left_margin"
+                        android:text="Project Name"
+                        android:textStyle="bold"
+                        android:textColor="?colorPrimary"
+                        android:textSize="40sp"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:id="@+id/edit_iv_location"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2"
+                        android:paddingVertical="8dp"
+                        android:src="@drawable/ic_baseline_edit_location_24"
+                        android:clickable="true"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="@dimen/left_margin"
+                    android:text="Containers"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_ll" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/edit_rv_containers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutAnimation="@anim/layout_animation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialTextView2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/materialTextView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/left_margin"
+                    android:text="Workers"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edit_rv_containers" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/edit_rv_workers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutAnimation="@anim/layout_animation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialTextView3" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/edit_cv_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:cardCornerRadius="10dp"
+                    android:elevation="12dp"
+                    android:clickable="true"
+                    android:layout_marginHorizontal="@dimen/left_margin"
+                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="?colorPrimary">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Optimize It!"
+                        android:textSize="27sp"
+                        android:padding="10dp"
+                        android:textColor="?colorOnPrimary"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

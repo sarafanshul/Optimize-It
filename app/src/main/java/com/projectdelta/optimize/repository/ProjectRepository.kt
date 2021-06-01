@@ -45,6 +45,10 @@ class ProjectRepository  @Inject constructor(private val projectDao: ProjectDao 
 		return projectDao.getContainer( projectName, containerName )
 	}
 
+	fun updateProject( project: Project ){
+		projectDao.updateProject( project )
+	}
+
 	fun insertContainer(container: Container){
 		projectDao.insertContainer( container )
 	}
