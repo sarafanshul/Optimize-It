@@ -84,7 +84,6 @@ class BinPackingActivity : AppCompatActivity() {
 				viewModel.converter.set(response.body()!!)
 				viewModel.converter.fromResponseToRaw()
 				viewModel.workers = viewModel.converter.workers
-				binding.binPackingLl.visibility = View.VISIBLE
 				viewModel.updateWorkers( )
 				createView( projectName )
 			}
@@ -96,6 +95,7 @@ class BinPackingActivity : AppCompatActivity() {
 		binding.binPackingTwValue.text = "${ viewModel.converter.responseModel.totalValuePacked }/${ viewModel.converter.totalValue }"
 		binding.binPackingTwWeight.text = "${ viewModel.converter.responseModel.totalWeightPacked }/${ viewModel.converter.totalWeight }"
 
+		binding.binPackingLl.visibility = View.VISIBLE
 		binding.binPackingPb.visibility = View.GONE
 
 		binding.binPackingRv.layoutManager = LinearLayoutManager(this)

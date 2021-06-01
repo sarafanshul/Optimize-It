@@ -1,5 +1,6 @@
 package com.projectdelta.optimize.util
 
+import android.util.Log
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.data.entities.Project
 import com.projectdelta.optimize.data.entities.Worker
@@ -14,6 +15,9 @@ class CVRPDataConverter {
 	lateinit var responseModel : CVRPResponse
 	var totalValue = 0L
 	var totalWeight = 0L
+	var usedValue = 0L
+	var usedWeight = 0L
+	var count = 0
 	var prefixContainerIdx = mutableListOf<Int>()
 
 	fun set( model: CVRPResponse){
@@ -57,6 +61,11 @@ class CVRPDataConverter {
 		return CVRPRequestModel( workers.size , depot , loc.toList() , cap , demands )
 	}
 
+	/* 1 INDEXED  =>
+	* 		depot at start -> model returned 1 indexed
+	*  		- avoid (0) valued files
+	*   	- change 1 indexed values to 0 indexed
+	* */
 	fun fromResponseToRaw(){
 		if( ! this::project.isInitialized    ||
 			! this::containers.isInitialized ||
@@ -65,26 +74,32 @@ class CVRPDataConverter {
 
 		for( i in responseModel.VehicleRoute ){
 			workers[i.key.trim().toInt()].route = getContainer( i.value )
+			workers[i.key.trim().toInt()].jobs = workers[i.key.trim().toInt()].route // routed jobs
 		}
 
 		for( i in responseModel.RouteDistance ){
 			workers[ i.key.trim().toInt() ].distanceTravelled = i.value
 		}
+
+		Log.d("NEW WORKERS" , workers.toString())
 	}
 
 	private fun getContainer( data : List<Int> ) : List<Int>{
 		// binary search for container idx
-		val result = Array( data.size ){ 0 }
-		for( i in data.indices ) {
+		val result = Array( data.size - 2 ){ 0 } // because start = depot & end = depot
+		for( i in 1 until data.size - 1 ) {
 			var l = -1 ; var r = containers.size ; var m = l
 			while (l + 1 < r) {
 				m = (l + r) / 2
-				if (prefixContainerIdx[m] >= data[i] )
+				if (prefixContainerIdx[m] >= (data[i] - 1) ) // cahnge from 1Indexed to 0Indexed
 					r = m
 				else
 					l = m
 			}
-			result[i] = r
+			usedValue += containers[r].value
+			usedWeight += containers[r].weight
+			count++
+			result[i - 1] = r
 		}
 		return result.toList() // fuck type
 	}

@@ -1,5 +1,6 @@
 package com.projectdelta.optimize.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +8,15 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.projectdelta.optimize.databinding.ActivityCvrpactivityBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.projectdelta.optimize.R
+import com.projectdelta.optimize.adapter.RecyclerViewCVRPAdapter
+import com.projectdelta.optimize.data.entities.Worker
+import com.projectdelta.optimize.databinding.ActivityCvrpBinding
 import com.projectdelta.optimize.service.RetrofitInstance
 import com.projectdelta.optimize.util.CVRPDataConverter
+import com.projectdelta.optimize.util.RecyclerItemClickListenr
+import com.projectdelta.optimize.util.StatesRecyclerViewAdapter
 import com.projectdelta.optimize.viewModel.CVRPViewModel
 import kotlinx.coroutines.async
 import retrofit2.HttpException
@@ -17,13 +24,14 @@ import java.io.IOException
 
 class CVRPActivity : AppCompatActivity() {
 
-	lateinit var binding : ActivityCvrpactivityBinding
+	lateinit var binding : ActivityCvrpBinding
 	lateinit var viewModel : CVRPViewModel
+	lateinit var adapter : RecyclerViewCVRPAdapter
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
-		binding = ActivityCvrpactivityBinding.inflate(layoutInflater)
+		binding = ActivityCvrpBinding.inflate(layoutInflater)
 		viewModel = ViewModelProvider( this , ViewModelProvider.AndroidViewModelFactory.getInstance(this.application) ).get( CVRPViewModel::class.java )
 
 		setContentView(binding.root)
@@ -32,6 +40,9 @@ class CVRPActivity : AppCompatActivity() {
 
 		if( projectName.isNullOrEmpty() )
 			finish()
+
+		binding.cvrpPb.visibility = View.VISIBLE
+		binding.cvrpLl.visibility = View.GONE
 
 		launchRequest( projectName )
 
@@ -53,7 +64,7 @@ class CVRPActivity : AppCompatActivity() {
 			viewModel.converter.set( viewModel.containers , viewModel.workers )
 
 			val model = viewModel.converter.fromRawToRequest()
-
+			Log.d("RESPONSE REQUEST MODEL" , model.toString())
 			Toast.makeText(this@CVRPActivity , "Waiting for response" , Toast.LENGTH_LONG).show()
 			val response = try {
 				RetrofitInstance.apiCVRP.post( model )
@@ -83,6 +94,40 @@ class CVRPActivity : AppCompatActivity() {
 	}
 
 	private fun createView(projectName: String) {
+		binding.cvrpTwCount.text = viewModel.converter.count.toString()
+		binding.cvrpTwDistance.text = viewModel.converter.responseModel.RouteDistance.values.sum().toString()
+		binding.cvrpTwValue.text = "${viewModel.converter.usedValue}/${viewModel.converter.totalValue}"
+		binding.cvrpTwWeight.text = "${viewModel.converter.usedWeight}/${viewModel.converter.totalWeight}"
 
+		binding.cvrpLl.visibility = View.VISIBLE
+		binding.cvrpPb.visibility = View.GONE
+
+		binding.cvrpRv.layoutManager = LinearLayoutManager(this)
+		adapter = RecyclerViewCVRPAdapter(this)
+
+		val emptyView : View = layoutInflater.inflate( R.layout.layout_empty_view , binding.cvrpRv , false )
+
+		val statesAdapter = StatesRecyclerViewAdapter(adapter , emptyView , emptyView , emptyView)
+		binding.cvrpRv.adapter = statesAdapter
+		adapter.set( viewModel.workers )
+
+		binding.cvrpRv.addOnItemTouchListener(RecyclerItemClickListenr( this , binding.cvrpRv ,
+			object : RecyclerItemClickListenr.OnItemClickListener{
+				override fun onItemClick(view: View, position: Int) {
+					launchActivityAndFinish( adapter.data[position] )
+				}
+				override fun onItemLongClick(view: View?, position: Int) { }
+			}
+		))
+
+	}
+
+	private fun launchActivityAndFinish(worker: Worker) {
+		val i = Intent( this , EditWorkerActivity::class.java )
+			.putExtra( "WORKER" , worker )
+
+		// not added to stack | async calls hence both are called
+		finish()
+		startActivity( i )
 	}
 }

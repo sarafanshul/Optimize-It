@@ -6,40 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".activity.ProjectInfoActivity">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/base_padding">
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/edit_tw_name"
+            <LinearLayout
+                android:id="@+id/edit_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="12dp"
-                android:paddingBottom="4dp"
-                android:paddingHorizontal="16dp"
-                android:text="Project Name"
-                android:textStyle="bold"
-                android:textColor="?colorPrimary"
-                android:textSize="40sp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:id="@+id/edit_tw_name"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="4dp"
+                    android:paddingHorizontal="@dimen/left_margin"
+                    android:text="Project Name"
+                    android:textStyle="bold"
+                    android:textColor="?colorPrimary"
+                    android:textSize="40sp"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:id="@+id/edit_iv_location"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/ic_baseline_edit_location_24"
+                    android:clickable="true"/>
+
+            </LinearLayout>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/materialTextView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
+                android:paddingVertical="12dp"
+                android:paddingHorizontal="@dimen/left_margin"
                 android:text="Containers"
                 android:textColor="?colorOnColorOnPrimary"
                 android:textSize="22sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_tw_name" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_ll" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/edit_rv_containers"
@@ -55,7 +73,7 @@
                 android:id="@+id/materialTextView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="12dp"
+                android:paddingHorizontal="@dimen/left_margin"
                 android:text="Workers"
                 android:paddingTop="20dp"
                 android:paddingBottom="12dp"
@@ -87,6 +105,8 @@
                 app:cardCornerRadius="10dp"
                 android:elevation="12dp"
                 android:clickable="true"
+                android:layout_marginHorizontal="@dimen/left_margin"
+                android:layout_marginBottom="16dp"
                 android:backgroundTint="?colorPrimary">
 
                 <com.google.android.material.textview.MaterialTextView
@@ -103,6 +123,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--    </androidx.core.widget.NestedScrollView>-->
 
 </androidx.drawerlayout.widget.DrawerLayout>

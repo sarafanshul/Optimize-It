@@ -84,6 +84,10 @@ class ProjectInfoActivity : AppCompatActivity() {
 			doWork( projectName )
 		}
 
+		binding.editIvLocation.setOnClickListener {
+			Toast.makeText(this , "Not Yet Implemented!" , Toast.LENGTH_LONG).show()
+		}
+
 	}
 
 	private fun doWork( projectName: String ) {

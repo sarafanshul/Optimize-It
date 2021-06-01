@@ -17,7 +17,7 @@
         app:cardElevation="14dp"
         app:cardCornerRadius="8dp"
         android:paddingVertical="4dp"
-        app:cardMaxElevation="16dp"
+        app:cardMaxElevation="@dimen/left_margin"
         android:background="@drawable/card_view_selector"
         app:cardPreventCornerOverlap="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
                 android:layout_weight="0.9"
                 android:textColor="?colorOnColorOnPrimary"
                 android:gravity="center_vertical"
-                android:paddingHorizontal="16dp"
+                android:paddingHorizontal="@dimen/left_margin"
                 android:paddingVertical="14dp"
                 android:singleLine="true"
                 android:text="Test"
@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.20"
-                android:paddingHorizontal="16dp"
+                android:paddingHorizontal="@dimen/left_margin"
                 android:src="@drawable/ic_baseline_miscellaneous_services_24"
                 android:clickable="true"/>
 

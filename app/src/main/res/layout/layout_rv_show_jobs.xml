@@ -10,6 +10,6 @@
         android:textSize="26sp"
         android:text="Text"
         android:id="@+id/rv_show_jobs_tw_name"
-        android:padding="16dp"/>
+        android:padding="@dimen/left_margin"/>
 
 </LinearLayout>

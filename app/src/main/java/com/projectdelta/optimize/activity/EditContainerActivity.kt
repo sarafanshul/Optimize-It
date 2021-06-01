@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import androidx.lifecycle.ViewModelProvider
+import com.projectdelta.optimize.constant.COORDINATE_MULTIPLER
 import com.projectdelta.optimize.data.entities.Container
 import com.projectdelta.optimize.databinding.ActivityEditContainerBinding
 import com.projectdelta.optimize.viewModel.EditContainerViewModel
@@ -44,8 +45,10 @@ class EditContainerActivity : AppCompatActivity() {
 		container.value = binding.editContainerEtValue.text.toString().toLong()
 		container.weight = binding.editContainerEtWeight.text.toString().toLong()
 		container.count = binding.editContainerEtCount.text.toString().toInt()
-//		container.latitude = (binding.editContainerEtLocationLat.toString().toFloat() * COORDINATE_MULTIPLER).toLong()
-//		container.longitude = (binding.editContainerEtLocationLong.toString().toFloat() * COORDINATE_MULTIPLER).toLong()
+		container.latitude = binding.editContainerEtLocationLat.text.toString().toLong()
+		container.longitude = binding.editContainerEtLocationLong.text.toString().toLong()
+//		container.latitude = (binding.editContainerEtLocationLat.text.toString().trim().toFloat() * COORDINATE_MULTIPLER.toFloat()).toLong()
+//		container.longitude = (binding.editContainerEtLocationLong.text.toString().trim().toFloat() * COORDINATE_MULTIPLER.toFloat()).toLong()
 		viewModel.update( container )
 		resultOk()
 	}

@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.BinPackingActivity">
+    tools:context=".activity.CVRPActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding= "@dimen/base_padding">
+        android:padding="@dimen/base_padding"
+        android:orientation="vertical">
 
-    <ProgressBar
-            android:id="@+id/bin_packing_pb"
+        <ProgressBar
+            android:id="@+id/cvrp_pb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -26,18 +27,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/bin_packing_ll"
             android:orientation="vertical"
+            android:id="@+id/cvrp_ll"
             android:padding="@dimen/base_padding">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16sp"
                 android:text="Summary"
-                android:textColor="?colorOnColorOnPrimary"
                 android:textSize="@dimen/H1"
-                android:textStyle="bold" />
+                android:textColor="?colorOnColorOnPrimary"
+                android:padding="16sp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,10 +55,10 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Value stored" />
+                        android:text="Value delivered" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/bin_packing_tw_value"
+                        android:id="@+id/cvrp_tw_value"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
@@ -80,10 +81,10 @@
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total Weight" />
+                        android:text="Weight delivered" />
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/bin_packing_tw_weight"
+                        android:id="@+id/cvrp_tw_weight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingVertical="10dp"
@@ -98,12 +99,72 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/bin_packing_rv"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/left_margin">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Distance travelled" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/cvrp_tw_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:text="1231231"
+                        android:textColor="?colorOnColorOnPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/left_margin">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Items delivered" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/cvrp_tw_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:text="23423"
+                        android:singleLine="true"
+                        android:ellipsize="marquee"
+                        android:textColor="?colorOnColorOnPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/cvrp_rv"/>
 
         </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

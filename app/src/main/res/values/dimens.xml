@@ -6,5 +6,6 @@
     <dimen name="rv_card_height">170dp</dimen>
     <dimen name="H1">40sp</dimen>
     <dimen name="base_padding">8dp</dimen>
+    <dimen name="left_margin">16dp</dimen>
 
 </resources>
