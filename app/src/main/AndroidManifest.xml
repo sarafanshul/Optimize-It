@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.OptimizeIt">
-        <activity android:name=".activity.ContainerMapsActivity"></activity>
+        <activity android:name=".activity.ClusteredWorkerRouteMapActivity"></activity>
+        <activity android:name=".activity.ContainerMapsActivity" />
         <activity android:name=".activity.DepotMapsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

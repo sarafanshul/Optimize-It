@@ -92,7 +92,7 @@ class CVRPDataConverter {
 			var l = -1 ; var r = containers.size ; var m = l
 			while (l + 1 < r) {
 				m = (l + r) / 2
-				if (prefixContainerIdx[m] >= (data[i] - 1) ) // cahnge from 1Indexed to 0Indexed
+				if (prefixContainerIdx[m] > (data[i] - 1) ) // cahnge from 1Indexed to 0Indexed
 					r = m
 				else
 					l = m

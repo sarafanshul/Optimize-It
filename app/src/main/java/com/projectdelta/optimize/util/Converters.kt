@@ -4,8 +4,10 @@ package com.projectdelta.optimize.util
 // https://stackoverflow.com/questions/44582397/android-room-persistent-library-typeconverter-error-of-error-cannot-figure-ou
 
 import androidx.room.TypeConverter
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.projectdelta.optimize.constant.COORDINATE_MULTIPLIER
 
 class Converters {
 
@@ -77,6 +79,10 @@ class Converters {
 		val gson = Gson()
 		val type = object : TypeToken< List< Pair<String , Long> > >() {}.type
 		return gson.fromJson(value, type)
+	}
+
+	fun fromLongToLanLng( lat : Long , log : Long ) : LatLng{
+		return LatLng( lat / COORDINATE_MULTIPLIER , log/ COORDINATE_MULTIPLIER )
 	}
 
 }

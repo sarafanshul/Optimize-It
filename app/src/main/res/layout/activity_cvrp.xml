@@ -31,14 +31,31 @@
             android:id="@+id/cvrp_ll"
             android:padding="@dimen/base_padding">
 
-            <com.google.android.material.textview.MaterialTextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Summary"
-                android:textSize="@dimen/H1"
-                android:textColor="?colorOnColorOnPrimary"
-                android:padding="16sp"
-                android:textStyle="bold"/>
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Summary"
+                    android:layout_weight="0.7"
+                    android:textSize="@dimen/H1"
+                    android:textColor="?colorOnColorOnPrimary"
+                    android:padding="16sp"
+                    android:textStyle="bold"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:id="@+id/cvrp_iv_map"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/ic_baseline_map_24"
+                    android:clickable="true"
+                    android:padding="8dp"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

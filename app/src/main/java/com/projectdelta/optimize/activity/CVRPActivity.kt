@@ -79,6 +79,7 @@ class CVRPActivity : AppCompatActivity() {
 				Toast.makeText(this@CVRPActivity , "Some error occurred!" , Toast.LENGTH_LONG).show()
 				return@launchWhenCreated
 			}
+			Log.d("RESPONSE", response.body().toString())
 			if (response.isSuccessful && response.body() != null && !response.body()!!.RouteDistance.isNullOrEmpty()) {
 				Log.d("RESPONSE", response.body().toString())
 				viewModel.converter.set(response.body()!!)
@@ -122,6 +123,14 @@ class CVRPActivity : AppCompatActivity() {
 				override fun onItemLongClick(view: View?, position: Int) { }
 			}
 		))
+
+		binding.cvrpIvMap.setOnClickListener {
+			Intent( this , ClusteredWorkerRouteMapActivity::class.java ).apply {
+				putExtra("PROJECT_NAME" , projectName)
+			}.also{
+				startActivity( it )
+			}
+		}
 
 	}
 

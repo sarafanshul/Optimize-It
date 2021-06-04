@@ -6,5 +6,6 @@ class APIConstant {
 		const val TEST_API = "/"
 		const val BIN_PACKING_API = "/binpacking"
 		const val VRP_API = "/vrp"
+		const val CVRP_API = "/cvrp"
 	}
 }

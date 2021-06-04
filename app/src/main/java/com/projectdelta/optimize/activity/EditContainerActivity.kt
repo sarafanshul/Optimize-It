@@ -68,10 +68,6 @@ class EditContainerActivity : AppCompatActivity() {
 		container.value = binding.editContainerEtValue.text.toString().toLong()
 		container.weight = binding.editContainerEtWeight.text.toString().toLong()
 		container.count = binding.editContainerEtCount.text.toString().toInt()
-		container.latitude = binding.editContainerEtLocationLat.text.toString().toLong()
-		container.longitude = binding.editContainerEtLocationLong.text.toString().toLong()
-//		container.latitude = (binding.editContainerEtLocationLat.text.toString().trim().toFloat() * COORDINATE_MULTIPLER.toFloat()).toLong()
-//		container.longitude = (binding.editContainerEtLocationLong.text.toString().trim().toFloat() * COORDINATE_MULTIPLER.toFloat()).toLong()
 		viewModel.update( container )
 		resultOk()
 	}

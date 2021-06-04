@@ -9,6 +9,6 @@ import retrofit2.http.POST
 
 interface CVRPApi {
 
-	@POST(APIConstant.VRP_API)
+	@POST(APIConstant.CVRP_API)
 	suspend fun post(@Body model: CVRPRequestModel) : Response<CVRPResponse>
 }
