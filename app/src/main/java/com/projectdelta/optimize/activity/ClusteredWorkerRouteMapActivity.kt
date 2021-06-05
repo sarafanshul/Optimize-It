@@ -86,7 +86,7 @@ class ClusteredWorkerRouteMapActivity : AppCompatActivity() {
 			val success = map.setMapStyle(
 				MapStyleOptions.loadRawResourceStyle(
 					this ,
-					R.raw.map_dark_style
+					R.raw.map_retro_style
 				)
 			)
 			if( !success ){
