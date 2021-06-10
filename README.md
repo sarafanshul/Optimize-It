@@ -7,7 +7,16 @@ Easy to use app for logistics management with a wide scope for many other uses l
 
 ![](/assets/mockups-v1/anim/ezgif.com-video-to-gif.gif)
 
-![](/assets/mockups-v1/preview/merge_from_ofoct.jpg)
+## Mockups
+<details><summary>View Mockups</summary>
+  
+  ![](/assets/mockups-v2/0c796c50-fe07-483d-8220-1900ad4c0dff.png)
+  ![](/assets/mockups-v2/white-blank-screens-mockup.png)
+  ![](/assets/mockups-v1/preview/shotsnapp-1622310801.44.jpeg)
+  ![](/assets/mockups-v2/dark-iphone-mockup.png)
+
+</details>
+
 
 ## Tech-Stack
 
